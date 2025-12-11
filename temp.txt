@@ -1,0 +1,32 @@
+const [data, setData] = useState<Data[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setIsLoading(true)
+        const data = await getDesserts()
+
+        if (!data) return []
+
+        setData(data)
+      } catch (error: any) {
+        console.error(error)
+        setError(error)
+      } finally {
+        setIsLoading(false)
+
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  if (isLoading) return <h1>Loading...</h1>
+
+  if (error) return <h1>{error}</h1>
+
+  export function isSelected(id: string): ComputedSignal<boolean> {
+  return computed(() => cart.value.some(item => item.id === id));
+}

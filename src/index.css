@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* Custom fonts */
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("/assets/fonts/static/RedHatText-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("/assets/fonts/static/RedHatText-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("/assets/fonts/static/RedHatText-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  /* color: #40e0d0; */
+}
+
+@layer utilities {
+  .quantity-button {
+    @apply rounded-full w-5 aspect-square p-1 outline-1 outline-white flex items-center justify-center cursor-pointer;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::webkit-scrollbar {
+      display: none;
+    }
+  }
+}
